@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Weather &mdash; Colorlib e-Commerce Template</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"> 
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    
+	<style>
+        /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+
+        #map {
+            height: 70%;
+            width: 70%;
+        }
+
+        /* Optional settings. Do as you wish with these*/
+
+        html,
+        body {
+            height: 96%;
+            margin: 1%;
+            padding: 0;
+        }
+
+        #other {
+            height: 20%;
+            width: 50%;
+        }
+
+        #weatherImage {
+            margin-top: 10px;
+            border: 1px solid #5DBCD2;
+            min-height: 64px;
+            min-width: 64px;
+            max-width: 64px;
+			clear:left;
+        }
+		#map {
+		margin:50px;
+		height:100%;
+		width:100%;
+		display: inline-block;
+		}
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+  </head>
+  <body>
+  
+  <div class="site-wrap">
+    <header class="site-navbar" role="banner">
+      <div class="site-navbar-top">
+        <div class="container">
+          <div class="row align-items-center">
+
+            <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
+              <form action="" class="site-block-top-search">
+                <span class="icon icon-search2"></span>
+                <input type="text" class="form-control border-0" placeholder="Search">
+              </form>
+            </div>
+
+            <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
+              <div class="site-logo">
+                <a href="index.html" class="js-logo-clone">Weather Mapping</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div> 
+      <nav class="site-navigation text-right text-md-center" role="navigation">
+        <div class="container">
+          <ul class="site-menu js-clone-nav d-none d-md-block">
+            <li class="has-children">
+              <a href="index.html">Home</a>
+              <ul class="dropdown">
+                <li><a href="overview.html">Overview</a></li>
+                <li><a href="authors.html">Authors</a></li>
+                <li><a href="about.html">GEOJSON</a></li>
+                <li class="has-children">
+                  <a href="#">Mapping</a>
+                  <ul class="dropdown">
+                    <li><a href="#">Earthquake Mapping</a></li>
+                    <li><a href="weather.html">Weather Mapping</a></li>
+                    <li><a href="#">Additional Mapping</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="has-children">
+              <a href="about.html">About</a>
+              <ul class="dropdown">
+                <li><a href="#">Menu One</a></li>
+                <li><a href="#">Menu Two</a></li>
+                <li><a href="#">Menu Three</a></li>
+              </ul>
+            </li>
+            </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div class="bg-light py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Weather Mapping</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-section">
+      <div class="container">
+
+        <div class="row mb-5">
+          <div class="col-md-9 order-2">
+
+            <div class="row">
+              <div class="col-md-12 mb-5">
+                <div class="float-md-left mb-4"><h2 class="text-black h5">View weather information</h2></div>
+                <div class="d-flex">
+                  <div class="dropdown mr-1 ml-md-auto">
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                      <a class="dropdown-item" href="#">Men</a>
+                      <a class="dropdown-item" href="#">Women</a>
+                      <a class="dropdown-item" href="#">Children</a>
+                    </div>
+                  </div>
+				  
+				</div>  
+			</div>	  
+			</div>
+
+			
+				   <div id="other">
+        <button type="button" id="earthquakes">Click me</button>
+        <div id="info"></div>
+    </div>
+
+    <div id="weatherImage"></div>
+    <div id="weatherInfo"></div>
+    <div id="map"></div>
+    <script>
+        var map;
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 2,
+                center: new google.maps.LatLng(2.8, -187.3),
+                mapTypeId: 'terrain'
+            });
+        }
+
+        var thelocation;
+        var titleName;
+        $(document).ready(function () {
+
+            $('#earthquakes').click(function () {
+                map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 2,
+                    center: new google.maps.LatLng(2.8, -187.3),
+                    mapTypeId: 'terrain'
+                });
+                $.ajax({
+                    url: "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_day.geojson", //Unused example: https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2018-01-01&endtime=2018-01-02",
+                    error: function () {
+                        $('#info').html('<p>An error has occurred</p>');
+                    },
+
+                    success: function (data) {
+
+                        $.each(data.features, function (key, val) {
+                            var coords = val.geometry.coordinates;
+                            lat = coords[1]; // geojson uses (lng, lat) ordering so lat stored at coords[1]
+                            lng = coords[0]; // lng stored at coords[0]
+
+                            var latLng = new google.maps.LatLng(lat, lng);
+                            var marker = new google.maps.Marker({
+                                position: latLng,
+                                map: map,
+                                label: val.properties.mag.toString()
+                            });
+                            the_href = val.properties.url + "\'" + ' target=\'_blank\'';
+                            var infowindow = new google.maps.InfoWindow({
+                                content: "We access some external data (in this case it is weather) when we click on a marker. We update the page with the weather information. This method is useful for any data API that can be searched using a lat,lon coordinate."
+                            });
+                            marker.addListener('click', function () {
+                                // We use the lat and lon as the parameters in the API call to weather service
+                                var lat = marker.position.lat();
+                                var lng = marker.position.lng();
+                                // You need to use the FREE signup at https://www.apixu.com/ to get a key for the Weather URL below
+                                theURL = 'http://api.apixu.com/v1/current.json?key=f8198a10c7d94e57b48133854181011&q=' + lat.toFixed(4) + ',' + lng.toFixed(4);
+                                $.ajax({
+                                    url: theURL,
+                                    success: function (data) {
+                                        image = new Image();
+                                        if (data.error) {
+                                            image.src = "http://via.placeholder.com/64x64?text=%20"; // Error, so we use blank image for weather. See 'error:' below for another way to include a small blank image
+                                        }
+                                        else {
+                                            image.src = "http:" + data.current.condition.icon; // icon is specified within the data
+
+                                            $('#weatherInfo').html('<p>' + data.current.condition.text + '</p>'); // current weather in text format
+                                        }
+                                        image.onload = function () {
+                                            $('#weatherImage').empty().append(image);
+                                        };
+
+                                    },
+                                    error: function () { // Weather service could not provide weather for requested lat,lon world location
+                                        image = new Image();
+                                        // A local 64*64 transparent image. Generated from the useful site: http://png-pixel.com/
+                                        image.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAQAAAAAYLlVAAAAPElEQVR42u3OMQEAAAgDIJfc6BpjDyQgt1MVAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBgXbgARTAX8ECcrkoAAAAAElFTkSuQmCC";
+                                        image.onload = function () {
+                                            //set the image into the web page
+                                            $('#weatherImage').empty().append(image);
+                                        };
+                                    }
+                                });
+                                infowindow.open(map, marker);
+                            });
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiUQkqGTWlFwiyvujkF1aFjjdbJf3aym4&callback=initMap">
+    </script>
+
+				  
+				  
+				  
+				  
+				  
+		
+        <!--<div class="row pt-5 mt-5 text-center">
+          <div class="col-md-12">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" class="text-primary">Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+          </div>
+          
+     
+    </footer>-->
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+
+  <script src="js/main.js"></script>
+    
+  </body>
+</html>
