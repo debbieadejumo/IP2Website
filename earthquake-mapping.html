@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!-- Constructing a set of buttons where each one make a different ajax request, each button associated with a specific URL.
      Data feed URLs can be found on following page: https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php 
@@ -8,7 +9,7 @@
 
  <head>
     <meta charset='utf-8' />
-    <title>Earthquake Mapping Page</title>
+    <title>Earthquake Mapping</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,102 +23,11 @@
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/aos.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/earthquake.css">
+
     <link rel="stylesheet" href="css/style_new.css">
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        html,
-        body,
-        #container {
-            height: 100%;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: helvetica, arial, sans-serif;
-        }
-
-        #container #feed-heading {
-            height: 30px;
-            padding: 1em 0 0 1em;
-            margin-left:30px;
-        }
-
-        #feed-heading{
-            text-transform: uppercase;
-            margin-left:35px;
-        }
-        #feedColumn {
-            width: 30%;
-            float: right;
-            padding: 1em;
-        }
-
-        #feedSelector {
-            top: 1em;
-            left: 1em;
-            background-color: #fff;
-        }
-
-        .child-prop,
-        .feed-name,
-        .feed-date {
-            text-transform: capitalize;
-        }
-
-        .feed-date {
-            width: 50%;
-            border-bottom: 1px solid #999;
-            margin: 2em 0em 1em 0em;
-            padding-bottom: 0.2em;
-            font-weight: bold;
-        }
-
-        .feed-name {
-            padding: 0.5em;
-            margin: 0 0.5em 0 0;
-            background-color: #7971ea;
-            color: #fff;
-            border-radius: 0.3em;
-            cursor: pointer;
-            transition: all linear 0.2s;
-            border: none;
-            outline: none;
-            font-size: 0.8em;
-        }
-
-        .feed-name:hover {
-            background-color: #4f45e3;
-            border-color: #4539e2;
-        }
-
-        .child-prop {
-            display: inline-block;
-            margin: 0 0 0.5em 0;
-        }
-
-        #map {
-            height: 500px;
-            width: 900px;
-            margin-left: 40px;
-        }
-
-        #weatherImage {
-            min-height: 64px;
-            min-width: 64px;
-            max-width: 64px;
-            margin-left: 40px;
-        }
-
-        #weatherInfo p{
-            margin-left: 55px;
-        }
-
-    </style>
+   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
@@ -129,15 +39,15 @@
       <nav class="site-navigation text-right text-md-center" role="navigation">
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
-            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="overview.html">Overview</a></li>
             <li><a href="authors.html">Authors</a></li>
             <li><a href="authors.html">GeoJSON</a></li>
-            <li class="has-children">
-              <a href="about.html">Mapping</a>
+            <li class="has-children active">
+              <a href="#">Mapping</a>
               <ul class="dropdown">
-                <li><a href="earthQuake.html">Earthquake Mapping</a></li>
-                <li><a href="weather.html">Weather Mapping</a></li>
+                <li><a href="earthquake-mapping.html">Earthquake Mapping</a></li>
+                <li><a href="#">Weather Mapping</a></li>
                 <li><a href="#">Additonal Mapping</a></li>
             </ul>
         </li>
@@ -145,9 +55,26 @@
 </div>
 </nav>
 </header>
+
+<div class="bg-light py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Earthquake Mapping</strong></div>
+        </div>
+      </div>
+    </div>  
+
+
+
 <div id='container'>
     <!-- On our web page, show a link to the earthquake data. This is just for learning purposes. -->
-    <h3 id="feed-heading">Real-time Earthquakes Data the World Over</h3>
+    <div class="row justify-content-center mb-5">
+          <div class="col-md-7 site-section-heading text-center pt-4" id="site-section">
+            <h2>Real-time Earthquake Data All Over the World</h2>
+          </div>
+        </div>
+
+   <!--  <h2 class="text-black">Real-time Earthquakes Data the World Over</h2> <!/id="feed-heading" --> 
     <div id="feedColumn">
         <p>Explore the
             <a href="http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php">USGS earthquake feed</a> using a set of buttons created at run-time.

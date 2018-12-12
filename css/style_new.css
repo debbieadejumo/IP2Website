@@ -2,11 +2,16 @@
 	color: #fff;
 }
 
-#overview{
+#overview, #additional-links{
 	color: #25262a;
     letter-spacing: .05em;
     font-size: 18px;
 }
+
+#additional-links{ 
+	font-size: 20px;
+ }
+
 
 .block-38-body p{
 	color: #000;
@@ -15,6 +20,47 @@
 
 .block-38-body p b{
 	color: #7971ea;
+}
+
+#site-top{
+	padding-top: 40px;
+}
+
+#site-section{
+	margin-top: 30px;
+}
+
+.geo-add-link{
+	padding-top:0px; 
+}
+
+#geo-links{
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+.geo-page{
+	padding-top: 40px;
+}
+
+#geo-brief{
+	padding-left: 10%;
+	padding-right: 10%;
+}
+
+#tutorial-box{
+	height: 400px;
+}
+
+#tutorial-img{
+	height: 150px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+#tutorial-text{
+	margin-top: 20px;
+	padding-top: 50px;
 }
 
 
