@@ -232,10 +232,10 @@
                                 success: function (data) {
                                     image = new Image();
                                     if (data.error) {
-                                        image.src = "http://via.placeholder.com/64x64?text=%20"; // Error, so we use blank image for weather. See 'error:' below for another way to include a small blank image
+                                        image.src = "https://via.placeholder.com/64x64?text=%20"; // Error, so we use blank image for weather. See 'error:' below for another way to include a small blank image
                                     }
                                     else {
-                                        image.src = "http:" + data.current.condition.icon; // icon is specified within the data
+                                        image.src = "https:" + data.current.condition.icon; // icon is specified within the data
 
                                         $('#weatherInfo').html('<p>' + data.current.condition.text + '</p>'); // current weather in text format
                                     }
