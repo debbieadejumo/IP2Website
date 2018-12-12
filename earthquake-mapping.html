@@ -217,16 +217,16 @@
                             map: map,
                             label: val.properties.mag.toString()
                         });
-                        /*the_href = val.properties.url + "\'" + ' target=\'_blank\'';
+                        the_href = val.properties.url + "\'" + ' target=\'_blank\'';
                         var infowindow = new google.maps.InfoWindow({
-                            content: "We access some external data (in this case it is weather) when we click on a marker. We update the page with the weather information. This method is useful for any data API that can be searched using a lat,lon coordinate."
-                        });*/
+                            content: ""
+                        });
                         marker.addListener('click', function () {
                             // We use the lat and lon as the parameters in the API call to weather service
                             var lat = marker.position.lat();
                             var lng = marker.position.lng();
                             // You need to use the FREE signup at https://www.apixu.com/ to get a key for the Weather URL below
-                            theURL = 'http://api.apixu.com/v1/current.json?key=f8198a10c7d94e57b48133854181011&q=' + lat.toFixed(4) + ',' + lng.toFixed(4);
+                            theURL = 'http://api.apixu.com/v1/current.json?key=964f6449d12648b9bbc82831181212&q=' + lat.toFixed(4) + ',' + lng.toFixed(4);
                             $.ajax({
                                 url: theURL,
                                 success: function (data) {
