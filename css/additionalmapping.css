@@ -1,0 +1,29 @@
+/* Always set the map height explicitly to define the size of the div
+        * element that contains the map. */
+
+        #map {
+            height: 70%;
+            width: 70%;
+        }
+
+        /* Optional settings. Do as you wish with these*/
+
+        html,
+        body {
+            height: 96%;
+            margin: 1%;
+            padding: 0;
+        }
+
+        #other {
+            height: 20%;
+            width: 50%;
+        }
+
+        #weatherImage {
+            margin-top: 10px;
+            border: 1px solid #5DBCD2;
+            min-height: 64px;
+            min-width: 64px;
+            max-width: 64px;
+        }

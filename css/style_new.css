@@ -48,8 +48,29 @@
 	padding-right: 10%;
 }
 
+#map{
+
+}
+
+.population-button{
+	margin:auto;
+	text-align: center;
+	margin-top: 0px;S
+
+}
+
+#population-title{
+	margin-bottom: 20px !important;
+}
+
 #tutorial-box{
 	height: 400px;
+}
+
+.populated-map{
+	margin-left: 10%;
+	margin-right: 10%;
+
 }
 
 #tutorial-img{
@@ -63,5 +84,15 @@
 	padding-top: 50px;
 }
 
+
+.weather-row{
+	margin-left: 10%;
+	margin-right: 10%;
+
+}
+
+#weather-header{
+	margin-top: 40px;
+}
 
 

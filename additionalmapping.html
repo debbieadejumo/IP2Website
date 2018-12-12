@@ -39,22 +39,71 @@
             max-width: 64px;
         }
     </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"> 
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style_new.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 
 <body>
 
-    <div id="other">
-        <header>
-            <h1>Population Mapping</h1>
-            <h3>Accessing data on populated places when clicking on a Google Maps marker</h3>
-        </header>
-        <button type="button" id="earthquakes">Click me</button>
-        <div id="info"></div>
+<header class="site-navbar" role="banner">
+     
+
+      <nav class="site-navigation text-right text-md-center" role="navigation" >
+        <div class="container">
+          <ul class="site-menu js-clone-nav d-none d-md-block">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="overview.html">Overview</a></li>
+            <li><a href="authors.html">Authors</a></li>
+            <li><a href="geojson.html">GeoJSON</a></li>
+            <li class="has-children active">
+              <a href="about.html">Mapping</a>
+              <ul class="dropdown">
+                <li><a href="earthquake-mapping.html">Earthquake Mapping</a></li>
+                <li><a href="weatherpage.html">Weather Mapping</a></li>
+                <li><a href="additionalmapping.html">Population Mapping</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+
+    <div class="bg-light py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Population Mapping</strong></div>
+        </div>
+      </div>
+    </div> 
+
+    <div class="row justify-content-center mb-5" id="population-title">
+          <div class="col-md-7 site-section-heading text-center pt-4" id="weather-header">
+            <h2>Populated Places Mapping</h2>
+          </div>
+        </div>
+
+
+    <div id="other" class="population-button">
+        <button type="button" id="earthquakes" class="buy-now btn btn-sm btn-primary">Click me</button>
+        <!-- <div id="info"></div> -->
     </div>
 
-    <div id="weatherImage"></div>
+    <!-- <div id="weatherImage"></div> -->
     <div id="weatherInfo"></div>
     <div id="map"></div>
     <script>

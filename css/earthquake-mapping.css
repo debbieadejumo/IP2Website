@@ -1,0 +1,91 @@
+* {
+            box-sizing: border-box;
+        }
+
+        html,
+        body,
+        #container {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: helvetica, arial, sans-serif;
+        }
+
+        #container #feed-heading {
+            height: 30px;
+            padding: 1em 0 0 1em;
+            margin-left:30px;
+        }
+
+        #feed-heading{
+            text-transform: uppercase;
+            margin-left:35px;
+        }
+        #feedColumn {
+            width: 30%;
+            float: right;
+            padding: 1em;
+        }
+
+        #feedSelector {
+            top: 1em;
+            left: 1em;
+            background-color: #fff;
+        }
+
+        .child-prop,
+        .feed-name,
+        .feed-date {
+            text-transform: capitalize;
+        }
+
+        .feed-date {
+            width: 50%;
+            border-bottom: 1px solid #999;
+            margin: 2em 0em 1em 0em;
+            padding-bottom: 0.2em;
+            font-weight: bold;
+        }
+
+        .feed-name {
+            padding: 0.5em;
+            margin: 0 0.5em 0 0;
+            background-color: #7971ea;
+            color: #fff;
+            border-radius: 0.3em;
+            cursor: pointer;
+            transition: all linear 0.2s;
+            border: none;
+            outline: none;
+            font-size: 0.8em;
+        }
+
+        .feed-name:hover {
+            background-color: #4f45e3;
+            border-color: #4539e2;
+        }
+
+        .child-prop {
+            display: inline-block;
+            margin: 0 0 0.5em 0;
+        }
+
+        #map {
+            height: 500px;
+            width: 750px;
+            margin-left: 40px;
+        }
+
+        #weatherImage {
+            min-height: 64px;
+            min-width: 64px;
+            max-width: 64px;
+            margin-left: 40px;
+        }
+
+        #weatherInfo p{
+            margin-left: 55px;
+        }
