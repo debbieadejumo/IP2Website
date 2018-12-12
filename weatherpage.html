@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Weather &mdash; Colorlib e-Commerce Template</title>
+    <title>Weather Mapping</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -27,57 +27,28 @@
   
   <div class="site-wrap">
     <header class="site-navbar" role="banner">
-      <div class="site-navbar-top">
-        <div class="container">
-          <div class="row align-items-center">
+     
 
-            <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
-             <!-- <form action="" class="site-block-top-search">
-                <span class="icon icon-search2"></span>
-                <input type="text" class="form-control border-0" placeholder="Search">
-              </form>-->
-            </div>
-
-            <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
-              <div class="site-logo">
-                <a href="index.html" class="js-logo-clone">Weather Mapping</a>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div> 
-      <nav class="site-navigation text-right text-md-center" role="navigation">
+      <nav class="site-navigation text-right text-md-center" role="navigation" >
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
-            <li class="has-children">
-              <a href="index.html">Home</a>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="overview.html">Overview</a></li>
+            <li><a href="authors.html">Authors</a></li>
+            <li><a href="geojson.html">GeoJSON</a></li>
+            <li class="has-children active">
+              <a href="about.html">Mapping</a>
               <ul class="dropdown">
-                <li><a href="overview.html">Overview</a></li>
-                <li><a href="authors.html">Authors</a></li>
-                <li><a href="about.html">GEOJSON</a></li>
-                <li class="has-children">
-                  <a href="#">Mapping</a>
-                  <ul class="dropdown">
-                    <li><a href="#">Earthquake Mapping</a></li>
-                    <li><a href="weather.html">Weather Mapping</a></li>
-                    <li><a href="#">Additional Mapping</a></li>
-                  </ul>
-                </li>
+                <li><a href="earthquake-mapping.html">Earthquake Mapping</a></li>
+                <li><a href="weatherpage.html">Weather Mapping</a></li>
+                <li><a href="additionalmapping.html">Population Mapping</a></li>
               </ul>
             </li>
-            <li class="has-children">
-              <a href="about.html">About</a>
-              <ul class="dropdown">
-                <li><a href="#">Menu One</a></li>
-                <li><a href="#">Menu Two</a></li>
-                <li><a href="#">Menu Three</a></li>
-              </ul>
-            </li>
-            </ul>
+          </ul>
         </div>
       </nav>
     </header>
+
 
     <div class="bg-light py-3">
       <div class="container">
@@ -86,20 +57,35 @@
         </div>
       </div>
     </div> 
+
+    <div class="row justify-content-center mb-5">
+          <div class="col-md-7 site-section-heading text-center pt-4" id="weather-header">
+            <h2>Weather Mapping</h2>
+          </div>
+        </div>
       
-      <div id="data-area" >
+      <div id="data-area">
+      <div class="row ">
+      <div class="col-md-6">
           <h4>Enter the co-ordinates of the location:</h4>
                 <form target="_blank" >
                     <input type="number" name="lat" id="lat" >
                     <input type="number" name="lng" id="lng" > 
                 </form>
-                <button id="coords" class="find">Find</button><br>
-          <h4>Or</h4>
-           <h4>Enter the name of the location:</h4>
+                <button id="coords" class="find buy-now btn btn-sm btn-primary">Find</button><br>
+                </div>
+         
+          
+         <div class="col-md-6">
+           <h4>Or Enter the name of the location:</h4>
                    <form>
                        <input type="text" id="placeName">
           </form> 
-          <button id="words" class="find">Find</button>
+          <button id="words" class="find buy-now btn btn-sm btn-primary">Find</button>
+          </div>
+          </div>
+
+
           <div id="container">
                 <div id="place">
                 </div>

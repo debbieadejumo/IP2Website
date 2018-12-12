@@ -753,7 +753,8 @@ a {
   margin-bottom: 20px; }
 
 #data-area{
-    margin-left: auto;
+    margin-left: 10%;
+    margin-right: 10%;
     padding:20px;
 }
 #coords, #words{
